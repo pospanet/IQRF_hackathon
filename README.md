@@ -1,30 +1,30 @@
-# IQRF Azure Demo
+ï»¿# IQRF Azure Demo
 
-## Poadavky
+## PoÅ¾adavky
 * Notebook s Windows 10
 * Visual Studio 2015 ([comunity edice](https://www.visualstudio.com/cs/vs/community/))
 * Raspberry Pi + SD karta
 * [Windows 10 IoT Core Dashboard](https://developer.microsoft.com/en-us/windows/iot/docs/iotdashboardtroubleshooting)
 
 ## Postup
-### Zaloení Azure Subscription
-Podle návodu na [aka.ms/cz/azurepass](https://aka.ms/cz/azurepass) si aktivujte Azure Subscription. Pøípadnì je moné pouít u existující Azure Subscription.
+### ZaloÅ¾enÃ­ Azure Subscription
+Podle nÃ¡vodu na [aka.ms/cz/azurepass](https://aka.ms/cz/azurepass) si aktivujte Azure Subscription. PÅ™Ã­padnÄ› je moÅ¾nÃ© pouÅ¾Ã­t uÅ¾ existujÃ­cÃ­ Azure Subscription.
 
-### Pøíprava Azure prostøedí
-Pro demo budeme potøebovat nìkolik slueb pro zpracování a vizualizaci dat.
-1. Vytvoøte `Skupinu prostøedkù`
+### PÅ™Ã­prava Azure prostÅ™edÃ­
+Pro demo budeme potÅ™ebovat nÄ›kolik sluÅ¾eb pro zpracovÃ¡nÃ­ a vizualizaci dat.
+1. VytvoÅ™te `Skupinu prostÅ™edkÅ¯`
 ![Resource group](https://github.com/pospanet/IQRF_hackathon/blob/master/images/Azure1.PNG)
 ![Resource group](https://github.com/pospanet/IQRF_hackathon/blob/master/images/Azure2.PNG)
-2. Vytvoøte `IoT Hub`
+2. VytvoÅ™te `IoT Hub`
 ![IoT Hub](https://github.com/pospanet/IQRF_hackathon/blob/master/images/Azure3.PNG)
-3. Vytvoøte `Streaming Analytics Job`
+3. VytvoÅ™te `Streaming Analytics Job`
 ![Streaming Analytics Job](https://github.com/pospanet/IQRF_hackathon/blob/master/images/Azure4.PNG)
 4. Nastavte Stream Analytics Job (SAJ)
-   1. Jako novı vstup z IoT hubu
+   1. Jako novÃ½ vstup z IoT hubu
 ![Streaming Analytics Job](https://github.com/pospanet/IQRF_hackathon/blob/master/images/Azure5.PNG)
-   2. Jako novı vıstup pouijte Power BI
+   2. Jako novÃ½ vÃ½stup pouÅ¾ijte Power BI
 ![Streaming Analytics Job](https://github.com/pospanet/IQRF_hackathon/blob/master/images/Azure6.PNG)
-   3. Pøekopírujte následující transformaci:
+   3. PÅ™ekopÃ­rujte nÃ¡sledujÃ­cÃ­ transformaci:
 ```SQL
 SELECT
     Device,
@@ -41,30 +41,30 @@ GROUP BY
 ![Streaming Analytics Job](https://github.com/pospanet/IQRF_hackathon/blob/master/images/Azure7.PNG)
 
 ### Instalace Raspberry Pi
-1. Pomocí [Windows 10 IoT Core Dashboard](https://developer.microsoft.com/en-us/windows/iot/docs/iotdashboardtroubleshooting) nahrajte na SD kartu Windows 10 IoT core
+1. PomocÃ­ [Windows 10 IoT Core Dashboard](https://developer.microsoft.com/en-us/windows/iot/docs/iotdashboardtroubleshooting) nahrajte na SD kartu Windows 10 IoT core
 ![Win10IoTdashboard](https://github.com/pospanet/IQRF_hackathon/blob/master/images/IoTdashboard.PNG)
-   1. Vyberte záloku `Setup new device`
-   2. Podle obrázku vyplòte pololíèka. Název a kapacita disku u políèka `Drive`
-   3. Volitelnì lze vybrat WiFi sí, ke které se má Raspberry Pi pøipojit
-2. Vlote SD kartu do Raspberry Pi, pøipojte monitor a následnì napájení. Pøi prvním spuštìní se provede samotná instalace.
-4. Stáhnìte a zkompilujte [IQRF Gateway emulátor](https://github.com/pospanet/IQRF_hackathon/tree/master/IoT%20simulator)
+   1. Vyberte zÃ¡loÅ¾ku `Setup new device`
+   2. Podle obrÃ¡zku vyplÅˆte pololÃ­Äka. NÃ¡zev a kapacita disku u polÃ­Äka `Drive`
+   3. VolitelnÄ› lze vybrat WiFi sÃ­Å¥, ke kterÃ© se mÃ¡ Raspberry Pi pÅ™ipojit
+2. VloÅ¾te SD kartu do Raspberry Pi, pÅ™ipojte monitor a nÃ¡slednÄ› napÃ¡jenÃ­. PÅ™i prvnÃ­m spuÅ¡tÄ›nÃ­ se provede samotnÃ¡ instalace.
+4. StÃ¡hnÄ›te a zkompilujte [IQRF Gateway emulÃ¡tor](https://github.com/pospanet/IQRF_hackathon/tree/master/IoT%20simulator)
 
-### Vytvoøení zaøízení v IoT Hubu
-1. Stáhnìte a zkompilujte [Device Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer)
-2. Z Azure portálu zkopírujte `Connection String` pro IoT Hub
+### VytvoÅ™enÃ­ zaÅ™Ã­zenÃ­ v IoT Hubu
+1. StÃ¡hnÄ›te a zkompilujte [Device Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer)
+2. Z Azure portÃ¡lu zkopÃ­rujte `Connection String` pro IoT Hub
 ![Win10IoTdashboard](https://github.com/pospanet/IQRF_hackathon/blob/master/images/IoTHub1.PNG)
-3. Vlote ho do Device Exploreru
+3. VloÅ¾te ho do Device Exploreru
 ![Win10IoTdashboard](https://github.com/pospanet/IQRF_hackathon/blob/master/images/IoTHub2.PNG)
-4. V Device Exploreru vytvoøte nové zaøízení
+4. V Device Exploreru vytvoÅ™te novÃ© zaÅ™Ã­zenÃ­
 ![Win10IoTdashboard](https://github.com/pospanet/IQRF_hackathon/blob/master/images/IoTHub3.PNG)
-5. Zkopírujte Connection String pro novì vytvoøené zaøízení.
+5. ZkopÃ­rujte Connection String pro novÄ› vytvoÅ™enÃ© zaÅ™Ã­zenÃ­.
 
-### Spuste IQRF Gateway emulátor
-1. Z Visual Studia nastavte deploy na zaøízení a nastavte IP adressu Raspberry Pi
+### SpusÅ¥te IQRF Gateway emulÃ¡tor
+1. Z Visual Studia nastavte deploy na zaÅ™Ã­zenÃ­ a nastavte IP adressu Raspberry Pi
 ![VisualStudio](https://github.com/pospanet/IQRF_hackathon/blob/master/images/IDE.PNG)
-2. Vlote do elulátoru Connection String zaøízení a spuste jej.
+2. VloÅ¾te do elulÃ¡toru Connection String zaÅ™Ã­zenÃ­ a spusÅ¥te jej.
 ![VisualStudio](https://github.com/pospanet/IQRF_hackathon/blob/master/images/Emulator.PNG)
 
 ### Power BI
-V rámci Power BI zkuste rùzné vizualizace dat.
+V rÃ¡mci Power BI zkuste rÅ¯znÃ© vizualizace dat.
 ![PowerBI](https://github.com/pospanet/IQRF_hackathon/blob/master/images/PowerBI.PNG)
